@@ -6,10 +6,12 @@ import org.junit.jupiter.api.Assertions;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 
 class UserSerializerTest {
@@ -44,20 +46,21 @@ class UserSerializerTest {
 
     }
 
-//    @org.junit.jupiter.api.Test
-//    void csvSerializer() throws IOException {
-//
-//        CsvUserSerializer csvUserSerializer = new CsvUserSerializer();
-//        Path path = Paths.get("primary.txt");
-//        ReadFile readFile = new ReadFile();
-//        Collection<User> userPrimary = readFile.add(path);
-//        csvUserSerializer.serializer( userPrimary,"User.csv");
-//        Assertions.assertTrue(new File("User.csv").exists());
-//        Assertions.assertTrue(new File("User.csv").length()!=0);
-//
-//
-//
-//    }
+    @org.junit.jupiter.api.Test
+    void csvSerializer() throws IOException {
+
+        CsvUserSerializer csvUserSerializer = new CsvUserSerializer();
+        Path path = Paths.get("primary.txt");
+        ReadFile readFile = new ReadFile();
+        Collection<User> userPrimary = readFile.add(path);
+        csvUserSerializer.serializer( userPrimary,"User.csv");
+
+        Assertions.assertTrue(new File("User.csv").exists());
+        Assertions.assertTrue(new File("User.csv").length()!=0);
+
+
+
+    }
 
 
     @org.junit.jupiter.api.Test
@@ -71,22 +74,21 @@ class UserSerializerTest {
 
 
     }
-//
-//    @org.junit.jupiter.api.Test
-//    void csvDeserializer() throws IOException {
-//
-//        CsvUserDeserializer csvUserDeserializer = new CsvUserDeserializer();
-//        Collection<User> userDeserializer = csvUserDeserializer.deserializer("primary.txt");
 
-//        Path path = Paths.get("primary.txt");
-//        ReadFile readFile = new ReadFile();
-//        Collection<User> userPrimary = readFile.add(path);
-//
-//        Assertions.assertTrue(new File("User.csv").exists());
-//        Assertions.assertTrue(new File("User.csv").length()!=0);
-//        System.out.println(userDeserializer);
+    @org.junit.jupiter.api.Test
+    void csvDeserializer() throws IOException {
+        Path path = Paths.get("User.csv");
+        List<String> strings = Files.readAllLines(path);
+
+        CsvUserDeserializer csvUserDeserializer = new CsvUserDeserializer();
+        Collection<User> userDeserializer = csvUserDeserializer.deserializer("User.csv");
+
+        System.out.println(userDeserializer);
+
+        Assertions.assertTrue(userDeserializer.size()==3);
 
 
- //   }
+
+    }
 
 }

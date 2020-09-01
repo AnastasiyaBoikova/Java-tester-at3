@@ -16,7 +16,7 @@ public class JsonUserSerializer implements UserSerializer {
 
         ObjectMapper objectMapper = new ObjectMapper();
         File out = new File(filename);
-        objectMapper.writerFor(Collection.class).writeValue(out, collections);
+        objectMapper.writerFor(User.class).writeValue(out, collections);
 
 
     }
