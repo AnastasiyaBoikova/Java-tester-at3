@@ -1,4 +1,4 @@
-package service;
+package service.serializer;
 
 import model.User;
 import model.UserCollection;

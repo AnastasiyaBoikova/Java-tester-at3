@@ -7,6 +7,9 @@ public class UserCollection implements Serializable {
 
     private Collection<User> users;
 
+    public UserCollection(Collection<User> users) {
+        this.users = users;
+    }
 
 
     @Override

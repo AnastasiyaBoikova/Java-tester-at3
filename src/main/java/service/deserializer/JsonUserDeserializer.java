@@ -1,8 +1,7 @@
-package service;
+package service.deserializer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import model.User;
-import model.UserCollection;
 
 import java.io.File;
 import java.io.IOException;
