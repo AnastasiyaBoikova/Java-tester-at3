@@ -84,9 +84,8 @@ class UserSerializerTest {
         CsvUserDeserializer csvUserDeserializer = new CsvUserDeserializer();
         Collection<User> userDeserializer = csvUserDeserializer.deserializer("User.csv");
 
-        System.out.println(userDeserializer);
 
-       // Assertions.assertTrue(userDeserializer.size()==3);
+        Assertions.assertEquals(10, userDeserializer.size());
 
 
 
