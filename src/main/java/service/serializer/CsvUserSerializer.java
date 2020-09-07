@@ -19,10 +19,6 @@ public class CsvUserSerializer implements UserSerializer {
         CsvSchema schema = csvMapper.schemaFor(User.class).withoutHeader().sortedBy("id","name","email").withLineSeparator("\n").withColumnSeparator(',');
         csvMapper.writer(schema).writeValue(out,collections);
 
-        //ObjectWriter writer = csvMapper.writerFor(User.class).with(schema);
-//        for (User user : collections) {
-//            writer.writeValue(out,user);
-//        }
 
     }
 

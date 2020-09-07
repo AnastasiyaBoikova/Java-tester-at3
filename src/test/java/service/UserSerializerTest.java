@@ -81,13 +81,10 @@ class UserSerializerTest {
     @org.junit.jupiter.api.Test
     void csvDeserializer() throws IOException {
         Path path = Paths.get("User.csv");
-//        List<String> strings = Files.readAllLines(path);
-//        System.out.println(strings);
         CsvUserDeserializer csvUserDeserializer = new CsvUserDeserializer();
-
         Collection<User> userDeserializer = csvUserDeserializer.deserializer("User.csv");
 
-       // System.out.println(userDeserializer);
+        System.out.println(userDeserializer);
 
        // Assertions.assertTrue(userDeserializer.size()==3);
 
